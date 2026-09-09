@@ -158,15 +158,17 @@ const Hud = () => {
       >
         <Label
           value={
-            local.ragdoll > 0
-              ? '<b>KNOCKED DOWN</b>'
-              : local.popTimer > 0
-                ? 'shearing…'
-                : charging
-                  ? local.charge >= 1
-                    ? '<b>FULL POWER!</b>'
-                    : 'charging…'
-                  : 'HOLD to charge'
+            local.barnSafeRemaining > 0
+              ? `<b>SAFE ${Math.ceil(local.barnSafeRemaining)}s</b>`
+              : local.ragdoll > 0
+                ? '<b>KNOCKED DOWN</b>'
+                : local.popTimer > 0
+                  ? 'shearing…'
+                  : charging
+                    ? local.charge >= 1
+                      ? '<b>FULL POWER!</b>'
+                      : 'charging…'
+                    : 'HOLD to charge'
           }
           fontSize={16}
           color={WHITE}

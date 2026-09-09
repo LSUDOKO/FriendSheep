@@ -35,6 +35,11 @@ export interface LocalState {
   facing: number
   nonce: number
 
+  /** Barn shelter: seconds of protection left, and the re-entry lockout. */
+  inBarn: boolean
+  barnSafeRemaining: number
+  barnCooldown: number
+
   powerups: ActivePowerups
   stats: RoundStats
 }
@@ -59,6 +64,10 @@ export const local: LocalState = {
   facing: 0,
   nonce: 0,
 
+  inBarn: false,
+  barnSafeRemaining: 0,
+  barnCooldown: 0,
+
   powerups: emptyPowerups(),
   stats: emptyStats(),
 }
@@ -73,6 +82,9 @@ export function resetLocalRound(): void {
   local.ragdoll = 0
   local.popTimer = 0
   local.popTarget = null
+  local.inBarn = false
+  local.barnSafeRemaining = 0
+  local.barnCooldown = 0
   local.powerups = emptyPowerups()
   local.stats = emptyStats()
 }

@@ -13,6 +13,7 @@ import { emptyPowerups, emptyStats } from '../rules/types'
 import { SCORE_FLOOR, asRam, local } from '../state'
 import { KNOCK_IMPULSE, endDash } from './charge'
 import { pushToast } from '../ui/hud'
+import { isSheltered } from './barn'
 
 /** Generous: synced positions are up to ~100ms stale at 10Hz. */
 const HIT_RADIUS = 1.8
@@ -124,6 +125,9 @@ export function registerHitListener(): void {
   bus.on(MSG_HIT, (m: HitMsg) => {
     if (m.vic !== local.address) return
     if (!local.ready) return
+
+    // Sheltered in the barn: the whole point of the Friendzone.
+    if (isSheltered()) return
 
     const key = `${m.atk}:${m.nonce}`
     if (seen.has(key)) return
