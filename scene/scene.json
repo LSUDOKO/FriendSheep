@@ -1,0 +1,38 @@
+{
+  "ecs7": true,
+  "runtimeVersion": "7",
+  "display": {
+    "title": "FriendSheep",
+    "description": "Charge, headbutt, steal their points. A 3-minute ram brawl built for phones — grab a friend, pick a target, and go.",
+    "navmapThumbnail": "images/scene-thumbnail.png",
+    "favicon": "favicon_asset"
+  },
+  "owner": "",
+  "contact": {
+    "name": "LSUDOKO",
+    "email": ""
+  },
+  "main": "bin/index.js",
+  "tags": ["game", "social"],
+  "scene": {
+    "parcels": ["0,0", "0,1", "1,0", "1,1"],
+    "base": "0,0"
+  },
+  "worldConfiguration": {
+    "name": "REPLACE-WITH-YOUR-NAME.dcl.eth"
+  },
+  "landscapeTerrain": false,
+  "requiredPermissions": ["ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE"],
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": { "x": [12, 20], "y": [0, 0], "z": [12, 20] },
+      "cameraTarget": { "x": 16, "y": 1, "z": 16 }
+    }
+  ],
+  "featureToggles": {
+    "voiceChat": "enabled",
+    "portableExperiences": "enabled"
+  }
+}
